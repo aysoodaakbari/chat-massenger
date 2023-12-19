@@ -22,7 +22,7 @@ const LoginPage = () => {
   return (
     <div className="flex h-full flex-col">
       <div className="mt-4 flex flex-col gap-y-2">
-        <Typography className="!font-bold md:text-center md:!text-3xl">
+        <Typography className="!font-bold  text-primary-main md:text-center md:!text-3xl ">
           LOGIN
         </Typography>
         <Typography className="md:!hidden" variant="body2">

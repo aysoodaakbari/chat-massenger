@@ -4,7 +4,7 @@ import { Banner } from "../../components/login/banner";
 
 const LoginContainer = () => {
   return (
-    <div className="flex w-full bg-white-400">
+    <div className="flex w-full !bg-white-200">
       <div className="mx-auto flex w-full max-w-[30rem] flex-col px-4 md:w-1/2">
         <div className="hidden md:block md:basis-1/5" />
 

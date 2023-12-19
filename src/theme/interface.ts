@@ -22,4 +22,14 @@ export interface IAzkiPalette extends PaletteOptions {
     "800": string;
     main: string;
   };
+  gray?: PaletteColorOptions & {
+    "50": string;
+    "100": string;
+    "150": string;
+    "200": string;
+    "400": string;
+    "600": string;
+    "800": string;
+    main: string;
+  };
 }
