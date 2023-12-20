@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material/styles";
 import pallete from "./pallet";
 import { IAzkiPalette } from "./interface";
 
-let theme = createTheme({
+const theme = createTheme({
   direction: "rtl",
   palette: pallete as IAzkiPalette,
   components: {
@@ -23,7 +23,7 @@ let theme = createTheme({
 
     MuiOutlinedInput: {
       styleOverrides: {
-        root: ({}) => ({
+        root: () => ({
           outline: "unset",
           borderRadius: 8,
         }),
@@ -73,7 +73,7 @@ let theme = createTheme({
         disableElevation: true,
       },
       styleOverrides: {
-        root: ({}) => ({
+        root: () => ({
           borderRadius: 8,
 
           "@media (max-width: 900px)": {

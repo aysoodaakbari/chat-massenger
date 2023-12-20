@@ -3,6 +3,7 @@ import "../App.css";
 import MainLayout from "../layout/MainLayout";
 import LoginContainer from "../container/login";
 import ChatLayout from "../layout/ChatLayout";
+import ChatContent from "../components/chat-list/ChatContent";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
 
           <Route path="/register" element={<></>} />
           <Route element={<ChatLayout />}>
-            <Route path="/chatroom" element={<>shkdpks</>} />
+            <Route path="/chatroom/hi" element={<>shkdpks</>} />
+            <Route path="/chatroom/is" element={<>aysooda</>} />
+            <Route path="/chatroom/moki" element={<ChatContent />} />
           </Route>
         </Route>
       </Routes>

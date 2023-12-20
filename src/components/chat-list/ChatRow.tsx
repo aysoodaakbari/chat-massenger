@@ -1,40 +1,35 @@
-import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
-import { IChatRowProps } from './interface'
-import { useNavigate } from 'react-router-dom'
+import {
+  Avatar,
+  ListItem,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import theme from "../../theme";
 
-const ChatRow = (props:IChatRowProps) => {
-    const navigate=useNavigate()
+const ChatRow = () => {
+  const largeScreen = useMediaQuery(theme.breakpoints.up("md"));
+
+  // const navigate = useNavigate();
   return (
-    <ListItem
-    onClick={
-      props.link ? () => navigate(props.link as string) : props.onClick
-    }
-    disablePadding
-    className={`${props.className} block`}
-  >
-    <ListItemButton
-      open={props.open}
-      className={`h-12 ${props.className} ${
-        !props.open && "justify-center"
-      } px-2`}
-    >
-      {props.image !== undefined && (
-        <ListItemIcon
-          className={`!min-w-0 justify-center`}
-          style={{ width: 31 }}
-        >
-          img
-        </ListItemIcon>
-      )}
-      <ListItemText
-        className={`pr-4 transition-opacity ${
-          props.open ? "opacity-100" : "opacity-0"
-        }`}
-        primary={props.label}
-      />
-    </ListItemButton>
-  </ListItem>
-  )
-}
+    <ListItem disablePadding className={`p-3 flex flex-col md:bg-white-100`}>
+      <div className="flex flex-row gap-x-2">
+        <Avatar>A</Avatar>
+        {largeScreen ? (
+          <div className="flex flex-col">
+            <div className="flex flex-row justify-between">
+              <Typography className="!font-semibold">Aysooda</Typography>
+              <Typography>13:50</Typography>
+            </div>
+            <Typography>
+              hi, how are you today? do you feel better now?
+            </Typography>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+    </ListItem>
+  );
+};
 
-export default ChatRow
+export default ChatRow;
