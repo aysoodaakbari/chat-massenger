@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material";
 import "./style.scss";
-import { AzkiLogo } from "../../../assets/icons";
 
 export const Banner = (props: {
   bannerHeadingText: string;
@@ -8,7 +7,7 @@ export const Banner = (props: {
 }) => {
   return (
     <div className="services-section container h-screen overflow-hidden">
-      <div className="min-h-[40vh] pb-10">
+      <div className="min-h-[20vh] pb-10">
         <Typography
           className="pt-16 !font-bold text-white-main"
           variant="subtitle2"
@@ -26,8 +25,8 @@ export const Banner = (props: {
         <div className="mt-4 h-0.5 w-96 bg-gradient-to-r from-white-50 to-white-600" />
       </div>
 
-      <div className="relative z-10 mt-auto flex ">
-        <AzkiLogo />
+      <div className="relative z-10 mt-auto flex items-center justify-center">
+        <img src="/azki-twitter_1.png" />
       </div>
     </div>
   );

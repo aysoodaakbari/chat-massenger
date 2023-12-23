@@ -6,19 +6,23 @@ import {
   Avatar,
   Grid,
   Paper,
+  IconButton,
 } from "@mui/material";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import theme from "../../theme/";
 import { useDispatch, useSelector } from "react-redux";
 import { IinitialState, addMassage } from "../../store/massage/slice";
 import { useSearchParams } from "react-router-dom";
 import openai, { OpenAI } from "openai";
+import { randomNumberInRange } from "../../utils/generateRandomNum";
+import { Send } from "../../assets/icons";
 
 const ChatContent = () => {
   const [searchParams] = useSearchParams();
   const user_id = Number(searchParams.get("id"));
   const [input, setInput] = useState<string>("");
   const [generatedText, setGeneratedText] = useState("");
+
   const openai = new OpenAI({
     apiKey: "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",
     dangerouslyAllowBrowser: true,
@@ -36,31 +40,46 @@ const ChatContent = () => {
     { reducer: { massage: IinitialState[] } },
     { reducer: { massage: IinitialState[] } }
   >((state) => state);
-  const handleSend = () => {
-    dispatch(
-      addMassage({
-        newMassage: [{ massageId: 5, sender: "aysooda", text: input }],
-        userId: user_id,
-      }),
-    );
 
-    if (input.trim() !== "") {
-      console.log(input);
-      setInput("");
+  const handleSend = (e?: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (input === "") {
+      e?.preventDefault();
+    } else {
+      dispatch(
+        addMassage({
+          newMassage: [
+            {
+              massageId: randomNumberInRange(10, 900),
+              sender: "aysooda",
+              text: input,
+            },
+          ],
+          userId: user_id,
+        }),
+      );
+
+      if (input.trim() !== "") {
+        setInput("");
+      }
+      generateText();
+      setTimeout(
+        () =>
+          dispatch(
+            addMassage({
+              newMassage: [
+                {
+                  massageId: randomNumberInRange(10, 900),
+                  sender: "bot",
+                  text: generatedText || "Hi How can I assist you?",
+                },
+              ],
+              userId: user_id,
+            }),
+          ),
+        3000,
+      );
     }
-    generateText();
-    setTimeout(
-      () =>
-        dispatch(
-          addMassage({
-            newMassage: [{ massageId: 6, sender: "bot", text: generatedText }],
-            userId: user_id,
-          }),
-        ),
-      3000,
-    );
   };
-
   const handleInputChange = (event: {
     target: { value: React.SetStateAction<string> };
   }) => {
@@ -70,9 +89,9 @@ const ChatContent = () => {
   return (
     <Box className="h-full flex flex-col bg-white-main !w-full">
       <Box sx={{ flexGrow: 1, overflow: "auto", p: 2 }}>
-        {/* @ts-ignore */}
-        {data.reducer.massage[user_id].data.map((message) => (
+        {data.reducer.massage[user_id].data.map((message, index) => (
           <Box
+            key={message.massageId + index}
             sx={{
               display: "flex",
               justifyContent:
@@ -92,7 +111,7 @@ const ChatContent = () => {
                   bgcolor:
                     message.sender === "bot"
                       ? "primary.main"
-                      : "secondary.main",
+                      : "secondary.600",
                 }}
               >
                 {message.sender === "bot" ? "B" : "U"}
@@ -119,27 +138,26 @@ const ChatContent = () => {
           </Box>
         ))}
       </Box>
-      <Box className="p-2">
+      <Box className="p-2 w-full">
         <Grid container spacing={2}>
-          <Grid item xs={10}>
+          <Grid item xs={11}>
             <TextField
               size="small"
-              fullWidth
+              className="!w-full"
               placeholder="Type a message"
               variant="outlined"
               value={input}
               onChange={handleInputChange}
             />
           </Grid>
-          <Grid item xs={2}>
-            <Button
-              fullWidth
-              color="primary"
-              variant="contained"
-              onClick={handleSend}
+          <Grid item xs={1}>
+            <IconButton
+              className="!bg-primary-main"
+              onClick={(e) => handleSend(e)}
+              onKeyDown={(e) => (e.key === "Enter" ? handleSend : "")}
             >
-              Send
-            </Button>
+              <Send width={20} height={20} />
+            </IconButton>
           </Grid>
         </Grid>
       </Box>

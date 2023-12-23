@@ -12,7 +12,7 @@ const ChatRow = (props: IProps) => {
   return (
     <ListItem
       disablePadding
-      className={`p-3 flex flex-col md:bg-white-100`}
+      className={`p-3 flex flex-col md:bg-white-100 cursor-pointer`}
       onClick={() => navigate(`chatroom/?id=${props.userId}`)}
     >
       <div className="flex flex-row gap-x-2">

@@ -9,17 +9,6 @@ const LoginContainer = () => {
         <div className="hidden md:block md:basis-1/5" />
 
         <div className="flex h-12 items-center justify-between md:h-auto md:justify-center">
-          <IconButton
-            className="basis-8 md:!hidden"
-            aria-label=""
-            onClick={() => {
-              window.location.href = `/`;
-            }}
-          >
-            {/* TODO */}
-            {/*    <SvgExit className="h-full w-full" /> */}
-          </IconButton>
-
           <div className="basis-8 md:hidden" />
         </div>
 
@@ -28,7 +17,7 @@ const LoginContainer = () => {
         <div className="hidden md:block md:basis-1/12" />
       </div>
 
-      <div className="hidden bg-white-400 pr-6 md:flex md:w-1/2 xl:pr-24">
+      <div className="hidden bg-white-400 pr-6 md:flex md:w-1/2 ">
         <Banner bannerHeadingText="" />
       </div>
     </div>

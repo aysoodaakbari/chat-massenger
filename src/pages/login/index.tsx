@@ -20,7 +20,7 @@ const LoginPage = () => {
 
   const onSubmit = () => {
     login("Aysooda", "hakuuaruaew");
-    console.log("first");
+    navigate("/chatroom");
   };
   return (
     <div className="flex h-full flex-col">
@@ -93,6 +93,7 @@ const LoginPage = () => {
             className="!bg-primary-main"
             size="large"
             onClick={onSubmit}
+            onKeyDown={(e) => (e.key === "Enter" ? onSubmit : "")}
           >
             login
           </Button>

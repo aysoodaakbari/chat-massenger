@@ -1,10 +1,11 @@
-import { Avatar, IconButton, List } from "@mui/material";
+import { Avatar, Badge, IconButton, List, styled } from "@mui/material";
 import ChatRow from "./ChatRow";
 import { useDispatch, useSelector } from "react-redux";
 import { IProfileState, setPhoto } from "../../store/profilePhoto/slice";
 
 const ChatList = () => {
   const dispatch = useDispatch();
+  const name: string[] = ["Aysooda", "Shirin", "Masoud", "Maryam"];
   const photo = useSelector<
     { reducer: { profile: IProfileState } },
     { reducer: { profile: IProfileState } }
@@ -13,21 +14,34 @@ const ChatList = () => {
   const handlePhotoChange = (newPhoto: string) => {
     dispatch(setPhoto(newPhoto));
   };
-  console.log(photo);
+
+  const SmallAvatar = styled(Avatar)(({ theme }) => ({
+    width: 16,
+    height: 16,
+    border: `2px solid ${theme.palette.primary.main}`,
+    background: theme.palette.primary.main,
+  }));
+
   return (
     <div>
       <div className="flex flex-col h-full">
         <List className="flex h-full flex-col gap-2 bg-white-200">
           <li className={`mb-12 mt-8 flex items-center justify-center`}>
             <label htmlFor="contained-button-file">
-              <Avatar
-                src={photo.reducer.profile.photo}
-                style={{
-                  margin: "10px",
-                  width: "60px",
-                  height: "60px",
-                }}
-              />
+              <Badge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                badgeContent={<SmallAvatar>+</SmallAvatar>}
+              >
+                <Avatar
+                  src={photo.reducer.profile.photo}
+                  style={{
+                    margin: "10px",
+                    width: "60px",
+                    height: "60px",
+                  }}
+                />
+              </Badge>
             </label>
             <input
               accept=""
@@ -43,10 +57,9 @@ const ChatList = () => {
               }}
             />
           </li>
-          <ChatRow userId={0} name={"Aysooda"} />
-          <ChatRow userId={1} name={"Shirin"} />
-          <ChatRow userId={2} name={"Masoud"} />
-          <ChatRow userId={3} name={"Maryam"} />
+          {name.map((name, index) => (
+            <ChatRow userId={index} name={name} />
+          ))}
         </List>
       </div>
     </div>
