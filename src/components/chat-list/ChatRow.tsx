@@ -1,6 +1,7 @@
 import { Avatar, ListItem, Typography, useMediaQuery } from "@mui/material";
 import theme from "../../theme";
 import { useNavigate } from "react-router-dom";
+import { randomDate } from "../../utils/generateRandomDate";
 
 interface IProps {
   userId: number;
@@ -9,6 +10,7 @@ interface IProps {
 const ChatRow = (props: IProps) => {
   const largeScreen = useMediaQuery(theme.breakpoints.up("md"));
   const navigate = useNavigate();
+  const d = randomDate(new Date(2023, 11, 10), new Date())
   return (
     <ListItem
       disablePadding
@@ -21,7 +23,7 @@ const ChatRow = (props: IProps) => {
           <div className="flex flex-col">
             <div className="flex flex-row justify-between">
               <Typography className="!font-semibold">{props.name}</Typography>
-              <Typography>13:50</Typography>
+              <Typography>{`${d.getHours()}:${d.getMinutes()} `}</Typography>
             </div>
             <Typography>
               hi, how are you today? do you feel better now?
