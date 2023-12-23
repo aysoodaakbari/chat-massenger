@@ -1,3 +1,5 @@
+import { IMassageData } from "store/massage/slice";
+
 export interface IChatRowProps {
   image?: JSX.Element;
   open: boolean;
@@ -5,4 +7,7 @@ export interface IChatRowProps {
   className?: string;
   onClick?: () => void;
   link?: string;
+}
+export interface IChatContentProps {
+  massageData: IMassageData[]
 }

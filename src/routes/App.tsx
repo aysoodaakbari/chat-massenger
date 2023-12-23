@@ -3,7 +3,7 @@ import "../App.css";
 import MainLayout from "../layout/MainLayout";
 import LoginContainer from "../container/login";
 import ChatLayout from "../layout/ChatLayout";
-import ChatContent from "../components/chat-list/ChatContent";
+import ChatContainer from "../container/chat";
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
 
           <Route path="/register" element={<></>} />
           <Route element={<ChatLayout />}>
-            <Route path="/chatroom" element={<ChatContent />}>
-              <Route path=":id" element={<ChatContent />} />
+            <Route path="/chatroom" element={<ChatContainer />}>
+              <Route path=":id" element={<ChatContainer />} />
             </Route>
           </Route>
         </Route>
