@@ -8,7 +8,9 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  color: #555555;
+}
+body {
+  color: #000000;
 }
 
 /* Chrome, Safari, Edge, Opera */

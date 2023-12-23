@@ -25,6 +25,7 @@ const theme = createTheme({
         root: () => ({
           outline: "unset",
           borderRadius: 8,
+          color: "#000",
         }),
       },
     },
@@ -41,7 +42,6 @@ const theme = createTheme({
         root: {
           background: "transparent",
           borderRadius: 8,
-          border: "1px solid #000",
           ":hover": {
             background: "transparent",
           },

@@ -1,18 +1,26 @@
 import { Avatar, ListItem, Typography, useMediaQuery } from "@mui/material";
 import theme from "../../theme";
+import { useNavigate } from "react-router-dom";
 
-const ChatRow = () => {
+interface IProps {
+  userId: number;
+  name: string;
+}
+const ChatRow = (props: IProps) => {
   const largeScreen = useMediaQuery(theme.breakpoints.up("md"));
-
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
-    <ListItem disablePadding className={`p-3 flex flex-col md:bg-white-100`}>
+    <ListItem
+      disablePadding
+      className={`p-3 flex flex-col md:bg-white-100`}
+      onClick={() => navigate(`chatroom/?id=${props.userId}`)}
+    >
       <div className="flex flex-row gap-x-2">
-        <Avatar>A</Avatar>
+        <Avatar>{`${props.name.slice(0, 1)}`}</Avatar>
         {largeScreen ? (
           <div className="flex flex-col">
             <div className="flex flex-row justify-between">
-              <Typography className="!font-semibold">Aysooda</Typography>
+              <Typography className="!font-semibold">{props.name}</Typography>
               <Typography>13:50</Typography>
             </div>
             <Typography>

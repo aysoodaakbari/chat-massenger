@@ -1,5 +1,4 @@
-import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type IMassageData = { massageId: number; text: string; sender: string };
 
@@ -9,7 +8,7 @@ export interface IinitialState {
 }
 const initialState: IinitialState[] = [
   {
-    userId: 1,
+    userId: 0,
     data: [
       {
         massageId: 1,
@@ -19,12 +18,22 @@ const initialState: IinitialState[] = [
     ],
   },
   {
+    userId: 1,
+    data: [
+      {
+        massageId: 1,
+        text: "Hi Shirin!",
+        sender: "bot",
+      },
+    ],
+  },
+  {
     userId: 2,
     data: [
       {
         massageId: 1,
-        text: "Hi Aysooda!",
-        sender: "aysooda",
+        text: "Hi masoud!",
+        sender: "bot",
       },
     ],
   },
@@ -33,7 +42,7 @@ const initialState: IinitialState[] = [
     data: [
       {
         massageId: 1,
-        text: "Hi Aysooda!",
+        text: "Hi Maryam!",
         sender: "bot",
       },
     ],

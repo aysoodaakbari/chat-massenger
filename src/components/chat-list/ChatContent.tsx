@@ -32,12 +32,15 @@ const ChatContent = () => {
     setGeneratedText(response.choices[0].text);
   };
   const dispatch = useDispatch();
-  const data = useSelector<IinitialState[], IinitialState[]>((state) => state);
+  const data = useSelector<
+    { reducer: { massage: IinitialState[] } },
+    { reducer: { massage: IinitialState[] } }
+  >((state) => state);
   const handleSend = () => {
     dispatch(
       addMassage({
         newMassage: [{ massageId: 5, sender: "aysooda", text: input }],
-        userId: 2,
+        userId: user_id,
       }),
     );
 
@@ -51,7 +54,7 @@ const ChatContent = () => {
         dispatch(
           addMassage({
             newMassage: [{ massageId: 6, sender: "bot", text: generatedText }],
-            userId: 2,
+            userId: user_id,
           }),
         ),
       3000,
@@ -68,7 +71,7 @@ const ChatContent = () => {
     <Box className="h-full flex flex-col bg-white-main !w-full">
       <Box sx={{ flexGrow: 1, overflow: "auto", p: 2 }}>
         {/* @ts-ignore */}
-        {data.data[1].data.map((message) => (
+        {data.reducer.massage[user_id].data.map((message) => (
           <Box
             sx={{
               display: "flex",

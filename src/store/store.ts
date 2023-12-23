@@ -1,9 +1,8 @@
-import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
-import { dataReducer } from "./massage/slice";
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./reducer";
 
 export const store = configureStore({
   reducer: {
-    data: dataReducer,
+    reducer: rootReducer,
   },
 });
