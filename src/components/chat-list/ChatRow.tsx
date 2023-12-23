@@ -1,9 +1,4 @@
-import {
-  Avatar,
-  ListItem,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Avatar, ListItem, Typography, useMediaQuery } from "@mui/material";
 import theme from "../../theme";
 
 const ChatRow = () => {

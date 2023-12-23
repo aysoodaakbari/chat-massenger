@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from "../../utils/regex";
 import { PhoneNumberInput } from "../../components/login/PhoneNumberInput";
 import { PasswordInput } from "../../components/login/PasswordInput";
+import { useLogin } from "../../hooks/auth/useLogin";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const { login } = useLogin();
   const { control, handleSubmit } = useForm<ILoginFormData>({
     defaultValues: {
       phoneNumber: "",
@@ -15,10 +17,11 @@ const LoginPage = () => {
     },
     mode: "onChange",
   });
-  const onSubmit: SubmitHandler<ILoginFormData> = () => {
-    navigate("/");
-  };
 
+  const onSubmit = () => {
+    login("Aysooda", "hakuuaruaew");
+    console.log("first");
+  };
   return (
     <div className="flex h-full flex-col">
       <div className="mt-4 flex flex-col gap-y-2">
@@ -33,7 +36,6 @@ const LoginPage = () => {
       <form
         className="mt-6 flex h-full flex-col"
         onSubmit={handleSubmit(onSubmit)}
-        autoComplete="off"
       >
         <Controller
           name="phoneNumber"
@@ -90,9 +92,10 @@ const LoginPage = () => {
             type="submit"
             className="!bg-primary-main"
             size="large"
+            onClick={onSubmit}
           >
-            login          
-         </Button>
+            login
+          </Button>
         </div>
       </form>
     </div>

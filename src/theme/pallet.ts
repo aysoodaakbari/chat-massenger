@@ -23,7 +23,7 @@ const pallete: IAzkiPalette = {
     "800": "rgba(1, 180, 255, 0.8)",
     main: "rgba(1, 180, 255, 1) ",
   },
-  gray : { 
+  secondary: {
     "50": "rgba(66, 66, 66, 0.05)",
     "100": "rgba(66, 66, 66, 0.1)",
     "150": "rgba(66, 66, 66, 0.15)",
@@ -32,6 +32,6 @@ const pallete: IAzkiPalette = {
     "600": "rgba(66, 66, 66, 0.6)",
     "800": "rgba(66, 66, 66, 0.8)",
     main: "rgba(66, 66, 66, 1)",
-  }
+  },
 };
 export default pallete;

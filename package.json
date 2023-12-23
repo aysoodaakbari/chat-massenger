@@ -8,19 +8,25 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prettier:format": "prettier --write",
+    "prettier:format": "prettier --write .",
     "prettier:check": "prettier --check",
     "gen:svg": "svgr ./src/assets/svgs -d ./src/assets/icons --ignore-existing --typescript --no-dimensions"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@faker-js/faker": "^8.0.2",
     "@mui/material": "^5.15.0",
+    "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.2",
+    "msw": "^1.2.3",
+    "openai": "^4.24.1",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
+    "react-redux": "^9.0.4",
     "react-router-dom": "6.2.1",
     "tailwind": "^4.0.0",
     "tailwind-scrollbar": "^3.0.5"
@@ -45,5 +51,8 @@
     "tailwindcss": "^3.3.6",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

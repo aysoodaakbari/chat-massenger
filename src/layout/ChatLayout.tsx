@@ -22,7 +22,6 @@ const ChatLayout = () => {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
           }),
-         
         }}
       >
         <Outlet />

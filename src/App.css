@@ -8,11 +8,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  /*  font-family: "IRANSansX", serif !important;*/
-}
-
-body {
-  background-color: #ffffff !important;
+  color: #555555;
 }
 
 /* Chrome, Safari, Edge, Opera */

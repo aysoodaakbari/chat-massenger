@@ -16,9 +16,9 @@ function App() {
 
           <Route path="/register" element={<></>} />
           <Route element={<ChatLayout />}>
-            <Route path="/chatroom/hi" element={<>shkdpks</>} />
-            <Route path="/chatroom/is" element={<>aysooda</>} />
-            <Route path="/chatroom/moki" element={<ChatContent />} />
+            <Route path="/chatroom" element={<ChatContent />}>
+              <Route path=":id" element={<ChatContent />} />
+            </Route>
           </Route>
         </Route>
       </Routes>

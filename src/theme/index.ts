@@ -3,7 +3,6 @@ import pallete from "./pallet";
 import { IAzkiPalette } from "./interface";
 
 const theme = createTheme({
-  direction: "rtl",
   palette: pallete as IAzkiPalette,
   components: {
     MuiTextField: {
@@ -29,17 +28,6 @@ const theme = createTheme({
         }),
       },
     },
-    MuiLinearProgress: {
-      styleOverrides: {
-        root: {
-          backgroundColor: pallete.white?.[100],
-          borderRadius: 4,
-          ".MuiLinearProgress-bar": {
-            borderRadius: 4,
-          },
-        },
-      },
-    },
     MuiFormControl: {
       styleOverrides: {
         root: {
@@ -53,9 +41,8 @@ const theme = createTheme({
         root: {
           background: "transparent",
           borderRadius: 8,
-          border: "1px solid rgba(255, 255, 255, 0.23)",
+          border: "1px solid #000",
           ":hover": {
-            borderColor: "#fff",
             background: "transparent",
           },
           "::after,::before": {

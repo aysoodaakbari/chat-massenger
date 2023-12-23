@@ -80,7 +80,7 @@ export const PhoneNumberInput = forwardRef(
                 className={`${hasError ? "text-error-main" : ""}`}
               >
                 <span
-                  className={`${count === 11 ? "" : "text-white-400"} ${
+                  className={`${count === 11 ? "" : "!text-secondary-main"} ${
                     hasError ? "text-error-main" : ""
                   }`}
                 >

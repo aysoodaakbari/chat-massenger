@@ -22,7 +22,7 @@ export interface IAzkiPalette extends PaletteOptions {
     "800": string;
     main: string;
   };
-  gray?: PaletteColorOptions & {
+  secondary?: PaletteColorOptions & {
     "50": string;
     "100": string;
     "150": string;
