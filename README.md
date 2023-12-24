@@ -12,7 +12,7 @@ Technologies:
 Frontend: React, TypeScript
 UI: Tailwind CSS, Material-UI
 Data Management: Mock Service Worker (MSW) for user login
-State MAnagment :Redux tooolkit
+State Managment :Redux toolkit
 Icons: Svgr to generate svg into component
 
 Implementation:
